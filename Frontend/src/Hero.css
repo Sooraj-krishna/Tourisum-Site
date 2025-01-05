@@ -1,0 +1,101 @@
+/* General Enhancements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/turisum.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw; 
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Ensures wrapping for smaller screens */
+    width: 100%;
+}
+
+.block, .container {
+    flex: 1;
+    min-width: 400px; /* Prevents elements from shrinking too small */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    background: rgb(40, 149, 238);
+    color: #fff; /* Ensures text is readable */
+    flex: 1;
+    height: 400px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    height: 400px;
+    overflow: hidden;
+    flex: 1;
+}
+
+.interactive-text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 4rem;
+    font-weight: bold;
+    padding: 20px;
+    background: url('/turisum.jpg') no-repeat center center;
+    background-size: 50ch;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: default;
+    transition: background-position 0.3s ease, font-size 0.3s ease;
+    text-align: center;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 750px) {
+    .interactive-text {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background-size: 30ch;
+    }
+
+    .content, .container {
+        height: auto; /* Adjust height for smaller screens */
+        padding: 15px;
+    }
+
+    .wrapper {
+        flex-direction: column; /* Stack elements vertically */
+    }
+}
+
+@media (max-width: 480px) {
+    .interactive-text {
+        font-size: 2rem;
+        background-size: 25ch;
+    }
+
+    .content {
+        padding: 10px;
+    }
+}

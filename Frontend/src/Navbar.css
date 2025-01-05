@@ -1,0 +1,52 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .Links {
+    display: flex;
+    list-style: none;
+  }
+  
+  .Links li {
+    margin: 0 1rem;
+  }
+  
+  .Links a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+  }
+  
+  .Links a:hover {
+    color: #ff9800;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 650px) {
+    .logo {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .Links a{
+      font-size: 0.75rem;
+    }
+
+  }
+  
