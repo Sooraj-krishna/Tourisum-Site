@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./upload.css";
 
 const UploadForm = () => {
   const [title, setTitle] = useState("");
