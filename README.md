@@ -1,16 +1,27 @@
-Tourism Site
+#Tourism Site
+
 Overview
+
 The Tourism Site is a full-stack web application that allows users to explore tourist places, upload their own images with descriptions, and interact with the community by sharing interesting locations. The backend is built using Node.js with MongoDB Atlas, while the frontend is developed using React.
 
 Features
+
 🌍 Explore various tourist locations with detailed descriptions and images.
+
 📤 Upload new tourist places with an image and description.
+
 💾 Data Storage using MongoDB Atlas for persistent storage.
+
 🔄 Responsive Design for a seamless experience across devices.
+
 Folder Structure
+
 bash
+
 Copy code
+
 Tourism-Site/
+
 ├── Backend/
 │   ├── server.js           # Main server file
 │   ├── .env                # Environment variables (ignored by Git)
