@@ -21,7 +21,6 @@ bash
 Copy code
 
 Tourism-Site/
-
 ├── Backend/
 │   ├── server.js           # Main server file
 │   ├── .env                # Environment variables (ignored by Git)
