@@ -19,23 +19,25 @@ const Hero = () => {
 };
     return (
         <>
-            <div className="hero">
-                <div className="wrapper">
-                        <div className="container" onMouseMove={handleMouseMove}>
-                            <h1 className="interactive-text"
-                                style={{
-                                backgroundPosition: `${position.x}% ${position.y}%`,
-                                }}
-                                >
-                                    Welcome To The World Of Tourisum
-                            </h1>
+            <section id='Hero'>
+                <div className="hero">
+                    <div className="wrapper">
+                            <div className="container" onMouseMove={handleMouseMove}>
+                                <h1 className="interactive-text"
+                                    style={{
+                                    backgroundPosition: `${position.x}% ${position.y}%`,
+                                    }}
+                                    >
+                                        Welcome To The World Of Tourisum
+                                </h1>
+                            </div>
+                        <div className="content">
+                            <h3>Tourisum</h3>
+                            <p>Tourism is the act of traveling for pleasure or relaxation, and the business of providing services to support that travel. It's a social, cultural, and economic phenomenon that involves people moving to new places for personal or professional reasons</p>
                         </div>
-                    <div className="content">
-                        <h3>Tourisum</h3>
-                        <p>Tourism is the act of traveling for pleasure or relaxation, and the business of providing services to support that travel. It's a social, cultural, and economic phenomenon that involves people moving to new places for personal or professional reasons</p>
                     </div>
                 </div>
-            </div>
+            </section>
         </>
     );
 };

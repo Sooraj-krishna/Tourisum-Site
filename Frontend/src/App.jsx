@@ -1,9 +1,10 @@
 import Navbar from './Navbar'
-import './App.css'
 import Hero from './Hero'
 import Cards from './Cards'
 import UploadForm from './UploadForm'
 import PlacesList from './PlacesList'
+import Footer from './Footer'
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
   return (
@@ -11,8 +12,9 @@ function App() {
       <Navbar />
       <Hero />
       <Cards />
-      <UploadForm />
       <PlacesList />
+      <UploadForm />
+      <Footer />
     </div>
   )
 }

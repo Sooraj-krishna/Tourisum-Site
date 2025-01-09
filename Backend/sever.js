@@ -1,19 +1,47 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require('dotenv').config();
+const { MongoClient, ServerApiVersion } = require('mongodb');
 const TouristPlace = require("./models/TouristPlace");
 
 const app = express();
 app.use(express.json({ limit: "10mb" }));
 app.use(cors());
 
-mongoose
-  .connect(
-    'mongodb://atlas-sql-6779881baa5ef962353434d1-l9v3z.a.query.mongodb.net/sample_mflix?ssl=true&authSource=admin'
-  )
-  .then(() => console.log("MongoDB Atlas connected"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+// MongoDB Atlas URI and MongoClient setup
+const uri =process.env.MongoDB_Atlas_URI;
 
+// Create a MongoClient instance with MongoClientOptions
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+async function connectMongo() {
+  try {
+    // Connect the MongoClient to the server
+    await client.connect();
+    // Send a ping to confirm the connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+
+    // Once MongoDB connection is successful, connect Mongoose
+    mongoose.connect(uri)
+      .then(() => console.log("MongoDB connected using Mongoose"))
+      .catch((err) => console.error("MongoDB connection error:", err));
+
+  } catch (err) {
+    console.error("Error connecting to MongoDB Atlas:", err);
+  }
+}
+
+connectMongo();
+
+// Routes for API
 app.post("/api/places", async (req, res) => {
   const { title, description, image } = req.body;
   try {
@@ -40,5 +68,18 @@ app.get("/api/places", async (req, res) => {
   }
 });
 
+app.delete('/api/places/:id', async (req, res) => {
+  try {
+    const result = await TouristPlace.findByIdAndDelete(req.params.id); // Use TouristPlace instead of Place
+    if (!result) return res.status(404).send("Place not found");
+    res.status(200).send("Place deleted successfully");
+  } catch (err) {
+    console.error("Error deleting place:", err); // Log detailed error
+    res.status(500).send("Error deleting place");
+  }
+});
+
+
+// Start the server
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
